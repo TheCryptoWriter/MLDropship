@@ -1,0 +1,17 @@
+[core]
+	repositoryformatversion = 0
+	filemode = true
+	bare = false
+	logallrefupdates = true
+[user]
+	email = gemini@google.com
+	name = Gemini
+[remote "drop"]
+	url = https://github.io/tgecryptowriter/mldropship
+	fetch = +refs/heads/*:refs/remotes/drop/*
+[remote "dropship"]
+	url = https://github.io/thecryptowriter/mldropship
+	fetch = +refs/heads/*:refs/remotes/dropship/*
+[remote "mldrop"]
+	url = https://github.com/thecryptowriter/mldropship
+	fetch = +refs/heads/*:refs/remotes/mldrop/*

@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dropshipping-backend
+  labels:
+    app: dropshipping-backend
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: dropshipping-backend
+  template:
+    metadata:
+      labels:
+        app: dropshipping-backend
+    spec:
+      containers:
+      - name: backend
+        image: your-docker-registry/dropshipping-backend:latest # Replace with your image
+        ports:
+        - containerPort: 8000
+        env:
+        - name: API_KEY
+          valueFrom:
+            secretKeyRef:
+              name: api-secrets
+              key: my-api-key
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: dropshipping-backend-service
+spec:
+  selector:
+    app: dropshipping-backend
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 8000
+  type: LoadBalancer

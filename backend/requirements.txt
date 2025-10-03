@@ -1,0 +1,7 @@
+fastapi<0.100
+uvicorn
+pydantic<2
+requests
+pytest
+httpx
+pytest-asyncio
